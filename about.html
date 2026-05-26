@@ -13,22 +13,8 @@
 
 <body>
 
-  <audio
-id="bgm"
-loop>
-
-<source
-src="music/bgm.mp3"
-type="audio/mpeg">
-
-</audio>
-
-  <audio id="clickSound">
-
-<source
-src="music/click.mp3"
-type="audio/mpeg">
-
+<audio id="bgm" autoplay loop>
+  <source src="music/bgm.mp3" type="audio/mpeg">
 </audio>
 
 <nav class="side-menu">
@@ -54,7 +40,6 @@ type="audio/mpeg">
 </nav>
 
 <div class="about-container">
-
   <div class="about-text">
 
     <div class="name-row">
@@ -80,7 +65,6 @@ type="audio/mpeg">
     </p>
 
   </div>
-
 </div>
 
 <div id="eatPopup" class="popup">
@@ -101,7 +85,6 @@ type="audio/mpeg">
 </div>
 
 <div id="fall-area"></div>
-<div id="fall-area"></div>
 
 <script>
 const fallArea = document.getElementById("fall-area");
@@ -114,6 +97,12 @@ const items = [
 
 const placed = [];
 const size = 40;
+
+function playBite(){
+  const biteAudio = new Audio("music/bite.mp3");
+  biteAudio.volume = 0.1;
+  biteAudio.play().catch(()=>{});
+}
 
 function snap(value){
   return Math.floor(value / size) * size;
@@ -133,6 +122,9 @@ function settleColumn(x){
 
 function removePlaced(item){
   const oldX = item.x;
+
+  playBite();
+
   item.el.remove();
 
   const index = placed.indexOf(item);
@@ -177,8 +169,8 @@ function enableDrag(item){
 
     moved = true;
 
-    item.el.style.left = e.clientX - size/2 + "px";
-    item.el.style.top = e.clientY - size/2 + "px";
+    item.el.style.left = e.clientX - size / 2 + "px";
+    item.el.style.top = e.clientY - size / 2 + "px";
   });
 
   document.addEventListener("mouseup", function(e){
@@ -192,8 +184,8 @@ function enableDrag(item){
       return;
     }
 
-    item.x = snap(e.clientX - size/2);
-    item.y = snap(e.clientY - size/2);
+    item.x = snap(e.clientX - size / 2);
+    item.y = snap(e.clientY - size / 2);
 
     item.el.style.left = item.x + "px";
     item.el.style.top = item.y + "px";
@@ -234,10 +226,10 @@ function createItem(){
       img.style.top = y + "px";
 
       const newItem = {
-        x:x,
-        y:y,
-        type:type,
-        el:img
+        x: x,
+        y: y,
+        type: type,
+        el: img
       };
 
       placed.push(newItem);
@@ -263,56 +255,57 @@ setInterval(createItem, 1200);
 <script>
 window.addEventListener("DOMContentLoaded", function(){
 
+  const bgm = document.getElementById("bgm");
   const photo = document.getElementById("anmiPhoto");
   const popup = document.getElementById("eatPopup");
   const eat = document.getElementById("eatBtn");
   const cancel = document.getElementById("cancelBtn");
 
+  bgm.volume = 0.3;
+
+  bgm.play().catch(function(){
+    document.addEventListener("click", function(){
+      bgm.play().catch(()=>{});
+    }, {once:true});
+  });
+
   photo.addEventListener("click", function(){
+    bgm.pause();
     popup.style.display = "flex";
   });
 
   cancel.addEventListener("click", function(){
     popup.style.display = "none";
+    bgm.play().catch(()=>{});
   });
 
   eat.addEventListener("click", function(){
+    playBite();
+
     photo.src = "images/me-bite.png";
     popup.style.display = "none";
+
+    bgm.play().catch(()=>{});
+  });
+
+  document.addEventListener("click", function(e){
+    const link = e.target.closest("a");
+
+    if(link){
+      const clickAudio = new Audio("music/click.mp3");
+      clickAudio.volume = 0.5;
+      clickAudio.play().catch(()=>{});
+
+      e.preventDefault();
+
+      setTimeout(function(){
+        window.location.href = link.href;
+      }, 600);
+    }
   });
 
 });
 </script>
-
-<script>
-const bgm = document.getElementById("bgm");
-
-document.addEventListener("click", function(e){
-
-  const link = e.target.closest("a");
-
-  if(bgm && bgm.paused){
-    bgm.play().catch(()=>{});
-  }
-
-  const clickAudio = new Audio("music/click.mp3");
-  clickAudio.volume = 0.5;
-  clickAudio.play().catch(()=>{});
-
-  if(link){
-    e.preventDefault();
-
-    setTimeout(function(){
-      window.location.href = link.href;
-    }, 600);
-  }
-
-});
-</script>
-
-<audio id="bgm" autoplay loop>
-  <source src="music/bgm.mp3" type="audio/mpeg">
-</audio>
 
 </body>
 </html>
