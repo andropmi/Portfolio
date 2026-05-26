@@ -1,165 +1,110 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>About Anmi</title>
 
-<title>
-
-About Anmi
-
-</title>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&family=Zen+Old+Mincho&display=swap"
-rel="stylesheet">
-
-<link
-rel="stylesheet"
-href="style.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <nav class="side-menu">
+  <a href="index.html">
+    <img src="images/pudding-icon.png">
+    首頁
+  </a>
 
-<a href="index.html">
+  <a href="about.html">
+    <img src="images/cherry-icon.png">
+    個人簡介
+  </a>
 
-<img
-src="images/pudding-icon.png">
+  <a href="brand.html">
+    <img src="images/cream-icon.png">
+    個人品牌
+  </a>
 
-首頁
-
-</a>
-
-<a href="about.html">
-
-<img
-src="images/cherry-icon.png">
-
-個人簡介
-
-</a>
-
-<a href="brand.html">
-
-<img
-src="images/cream-icon.png">
-
-個人品牌
-
-</a>
-
-<a href="projects.html">
-
-<img
-src="images/pudding-icon.png">
-
-作品展示
-
-</a>
-
+  <a href="projects.html">
+    <img src="images/pudding-icon.png">
+    作品展示
+  </a>
 </nav>
 
 <div class="about-container">
 
-<div class="profile-image">
+  <div class="about-text">
 
-<img
-src="images/profile.png">
+    <div class="name-row">
+      <img src="images/me.jpg" class="profile-small" id="anmiPhoto">
+      <h1>ANMI</h1>
+    </div>
 
-</div>
+    <p class="subtitle">Marketing Student ・ Creator</p>
 
-<div class="about-text">
+    <div class="line"></div>
 
-<div class="name-row">
+    <p>
+      出生於2004年，本名朱安彌，來自台灣。<br>
+      目前就讀於逢甲大學。<br>
+      喜歡狗貓動物、爬蟲類、簡單的設計、影像與故事。<br>
+      正在透過行銷、內容創作、互動體驗設計，<br>
+      慢慢建立自己的作品宇宙。
+    </p>
 
-<img
-src="images/me.jpg"
-class="profile-small"
-id="anmiPhoto">
+    <p>
+      目前專注於：<br>
+      品牌設計、數位內容、短影音企劃與行銷策略。
+    </p>
 
-<h1>
-
-ANMI
-
-</h1>
-
-</div>
-
-<p class="subtitle">
-
-Marketing Student ・ Creator
-
-</p>
-
-<div class="line"></div>
-
-<p>
-
-出生於2004年，本名朱安彌，來自台灣。<br>
-
-目前就讀於逢甲大學。<br>
-
-喜歡狗貓動物、爬蟲類、簡單的設計、影像與故事。<br>
-
-正在透過行銷、內容創作、互動體驗設計，<br>
-
-慢慢建立自己的作品宇宙。
-
-</p>
-
-<p>
-
-目前專注於：<br>
-
-品牌設計、數位內容、短影音企劃與行銷策略。
-
-</p>
+  </div>
 
 </div>
 
+<div id="eatPopup" class="popup">
+  <div class="popup-box">
+
+    <div class="popup-title">🚨SYSTEM ALERT🚨</div>
+
+    <p>⚠️ 請勿食用 ANMI！！</p>
+    <p>否則他會缺一塊。</p>
+    <p>是否確定要食用 ANMI？</p>
+
+    <div class="popup-buttons">
+      <button id="eatBtn">仍要食用</button>
+      <button id="cancelBtn">放棄</button>
+    </div>
+
+  </div>
 </div>
 
 <script>
+window.addEventListener("DOMContentLoaded", function(){
 
-const photo =
-document.getElementById(
-"anmiPhoto"
-);
+  const photo = document.getElementById("anmiPhoto");
+  const popup = document.getElementById("eatPopup");
+  const eat = document.getElementById("eatBtn");
+  const cancel = document.getElementById("cancelBtn");
 
-photo.addEventListener(
-"click",
+  photo.addEventListener("click", function(){
+    popup.style.display = "flex";
+  });
 
-function(){
+  cancel.addEventListener("click", function(){
+    popup.style.display = "none";
+  });
 
-const eat =
-confirm(
+  eat.addEventListener("click", function(){
+    photo.src = "images/me-bite.png";
+    popup.style.display = "none";
+  });
 
-"⚠️ 請勿食用 ANMI！！\n\n否則他會缺一塊。\n\n是否確定要食用 ANMI？"
-
-);
-
-if(eat){
-
-photo.src =
-"images/me-bite.png";
-
-}
-
-}
-
-);
-
+});
 </script>
 
 </body>
-
 </html>
