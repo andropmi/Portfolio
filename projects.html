@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet"
+href="style.css">
+
+<title>About Me</title>
+
+</head>
+
+<body>
+
+    <audio
+id="bgm"
+loop>
+
+<source
+src="music/bgm.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<audio id="clickSound">
+
+<source
+src="music/click.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<div class="container">
+
+<h1>動態作品</h1>
+
+<p>
+這裡放妳的自我介紹
+</p>
+
+<a href="index.html">
+
+Back
+
+</a>
+
+</div>
+
+<script>
+const bgm = document.getElementById("bgm");
+
+document.addEventListener("click", function(e){
+
+  const link = e.target.closest("a");
+
+  if(bgm && bgm.paused){
+    bgm.play().catch(()=>{});
+  }
+
+  const clickAudio = new Audio("music/click.mp3");
+  clickAudio.volume = 0.5;
+  clickAudio.play().catch(()=>{});
+
+  if(link){
+    e.preventDefault();
+
+    setTimeout(function(){
+      window.location.href = link.href;
+    }, 600);
+  }
+
+});
+</script>
+
+<audio id="bgm" autoplay loop>
+  <source src="music/bgm.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+
+</html>
