@@ -28,6 +28,28 @@ href="style.css">
 
 <body>
 
+  <audio id="bgm" autoplay loop>
+  <source src="music/bgm.mp3" type="audio/mpeg">
+</audio>
+
+    <audio
+id="bgm"
+loop>
+
+<source
+src="music/bgm.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<audio id="clickSound">
+
+<source
+src="music/click.mp3"
+type="audio/mpeg">
+
+</audio>
+
 <nav class="side-menu">
 
 <a href="about.html">
@@ -121,6 +143,59 @@ class="hotspot-icon">
 </div>
 
 </div>
+
+<script>
+const bgm = document.getElementById("bgm");
+
+document.addEventListener("click", function(e){
+
+  const link = e.target.closest("a");
+
+  if(bgm && bgm.paused){
+    bgm.play().catch(()=>{});
+  }
+
+  const clickAudio = new Audio("music/click.mp3");
+  clickAudio.volume = 0.5;
+  clickAudio.play().catch(()=>{});
+
+  if(link){
+    e.preventDefault();
+
+    setTimeout(function(){
+      window.location.href = link.href;
+    }, 600);
+  }
+
+});
+</script>
+
+<script>
+
+const bgm =
+document.getElementById("bgm");
+
+bgm.volume = 0.08;
+
+bgm.play().catch(function(){
+
+document.addEventListener(
+
+"click",
+
+function(){
+
+bgm.play().catch(()=>{});
+
+},
+
+{once:true}
+
+);
+
+});
+
+</script>
 
 </body>
 

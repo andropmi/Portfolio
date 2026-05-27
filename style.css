@@ -3,23 +3,24 @@ margin:0;
 background:#F6F1EB;
 font-family:'Noto Serif TC','Zen Old Mincho',serif;
 color:#3A2E2A;
-cursor:url("./images/fork.png") 8 8,pointer;
 }
 
+html,
+body,
+*,
 a,
-a:hover,
-.hotspot,
-.hotspot:hover,
-.side-menu a,
-.side-menu a:hover{
-cursor:url("./images/fork.png") 8 8,pointer;
+button,
+img{
+cursor:url("./images/fork.png") 8 8,pointer !important;
 }
 
+html:active,
 body:active,
+*:active,
 a:active,
-.hotspot:active,
-.side-menu a:active{
-cursor:url("./images/fork-scoop.png") 8 8,pointer;
+button:active,
+img:active{
+cursor:url("./images/fork-scoop.png") 8 8,pointer !important;
 }
 
 .container{
@@ -119,278 +120,140 @@ width:22px;
 height:22px;
 object-fit:contain;
 }
-html,
-body,
-*,
-a,
-button,
-img{
 
-cursor:url("./images/fork.png") 8 8,pointer !important;
+/* About */
 
-}
-
-html:active,
-body:active,
-*:active,
-a:active,
-button:active,
-img:active{
-
-cursor:url("./images/fork-scoop.png") 8 8,pointer !important;
-
-}
 .about-container{
-
 width:100%;
-
 max-width:1100px;
-
 margin:auto;
-
 min-height:100vh;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 gap:100px;
-
 padding:0 80px 0 500px;
-
 box-sizing:border-box;
-
 }
 
 .about-text{
-
 max-width:800px;
-
 }
 
 .about-text h1{
-
 font-size:48px;
-
 font-weight:800;
-
 margin:0;
-
 }
 
 .subtitle{
-
 letter-spacing:2px;
-
 opacity:.7;
-
 margin-bottom:30px;
-
 }
 
 .line{
-
 width:80px;
-
 height:1px;
-
 background:#A66A3F;
-
 margin:20px 0;
-
 }
 
 .about-text p{
-
 line-height:2;
-
 font-size:16px;
-
 }
 
 .name-row{
-
 display:flex;
-
 align-items:center;
-
 gap:20px;
-
 margin-bottom:20px;
-
 }
-
-/* ANMI照片 */
 
 .profile-small{
-
 width:90px;
-
 height:90px;
-
 object-fit:contain;
-
-cursor:pointer;
-
 transition:.35s;
-
 display:block;
-
 }
 
-/* 復古視窗 */
+/* Popup */
 
 .popup{
-
 position:fixed;
-
 top:0;
-
 left:0;
-
 width:100%;
-
 height:100%;
-
-background:
-
-rgba(0,0,0,.25);
-
+background:rgba(0,0,0,.25);
 display:none;
-
 justify-content:center;
-
 align-items:center;
-
 z-index:99999;
-
-backdrop-filter:
-
-blur(3px);
-
+backdrop-filter:blur(3px);
 }
 
 .popup-box{
-
 background:#F7F0E8;
-
 width:420px;
-
 padding:35px;
-
-border:
-
-3px solid #3A2E2A;
-
-box-shadow:
-
-8px 8px 0 #C8A37D;
-
+border:3px solid #3A2E2A;
+box-shadow:8px 8px 0 #C8A37D;
 text-align:center;
-
-font-family:
-
-'Noto Serif TC';
-
-animation:
-
-popupShow .25s ease;
-
+font-family:'Noto Serif TC';
+animation:popupShow .25s ease;
 }
 
 .popup-title{
-
 font-size:22px;
-
 font-weight:700;
-
 letter-spacing:3px;
-
 padding-bottom:12px;
-
 margin-bottom:20px;
-
-border-bottom:
-
-2px solid #3A2E2A;
-
+border-bottom:2px solid #3A2E2A;
 }
 
 .popup p{
-
 line-height:1.8;
-
 }
 
 .popup-buttons{
-
 display:flex;
-
 justify-content:center;
-
 gap:15px;
-
 margin-top:25px;
-
 }
 
 .popup button{
-
 background:white;
-
-border:
-
-2px solid #3A2E2A;
-
-padding:
-
-10px 18px;
-
-font-family:
-
-'Noto Serif TC';
-
+border:2px solid #3A2E2A;
+padding:10px 18px;
+font-family:'Noto Serif TC';
 font-size:15px;
-
 transition:.2s;
-
 }
 
 .popup button:hover{
-
 background:#EADBC8;
-
-transform:
-
-translateY(-2px);
-
+transform:translateY(-2px);
 }
 
 @keyframes popupShow{
-
 from{
-
 opacity:0;
-
-transform:
-
-scale(.9);
-
+transform:scale(.9);
 }
 
 to{
-
 opacity:1;
-
-transform:
-
-scale(1);
-
+transform:scale(1);
+}
 }
 
-}
+/* Falling icons */
+
 #fall-area{
 position:fixed;
 top:0;
@@ -415,4 +278,315 @@ transition:.2s;
 .fall-item.dragging{
 z-index:99999;
 transform:scale(1.2);
+}
+
+/* Brand page */
+
+.brand-layout{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:90px;
+padding:100px 80px 80px 220px;
+box-sizing:border-box;
+}
+
+.brand-text{
+width:620px;
+line-height:2;
+padding: left 40px;;
+}
+
+/* Logo beside brand name */
+
+.brand-header{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:30px;
+white-space:nowrap;
+}
+
+.brand-logo{
+width:90px;
+height:90px;
+border-radius:50%;
+background:#FFFDF8;
+padding:0px;
+object-fit:contain;
+border:4px solid #E8D9C7;
+box-shadow:0 6px 16px rgba(0,0,0,.08);
+flex-shrink:0;
+}
+
+.brand-header h1{
+margin:0;
+}
+
+.brand-header .brand-subtitle{
+margin-top:8px;
+margin-bottom:0;
+}
+
+.brand-text h1{
+font-size:35px;
+margin:0;
+letter-spacing:3px;
+}
+
+.brand-subtitle{
+font-size:30px;
+letter-spacing:4px;
+opacity:.75;
+margin-bottom:30px;
+}
+
+.bark{
+font-weight:700;
+letter-spacing:2px;
+}
+
+.brand-ig{
+display:inline-block;
+margin-top:25px;
+text-decoration:none;
+color:#A66A3F;
+padding-bottom:4px;
+transition:.25s;
+}
+
+.brand-ig:hover{
+opacity:.7;
+transform:translateX(4px);
+}
+
+/* Freezer display */
+
+.brand-display{
+position:relative;
+width:430px;
+height:720px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.freezer{
+position:absolute;
+width:100%;
+z-index:1;
+}
+
+.product{
+
+position:absolute;
+
+z-index:5;
+
+object-fit:contain;
+
+transition:.3s;
+
+filter:
+
+drop-shadow(
+0 0 12px
+rgba(255,245,220,.7)
+);
+
+animation:
+
+productStartup .9s ease-out;
+
+}
+
+@keyframes productStartup{
+
+0%{
+
+opacity:.3;
+
+filter:
+
+brightness(.5)
+drop-shadow(
+0 0 4px
+rgba(255,245,220,.3)
+);
+
+}
+
+30%{
+
+opacity:1;
+
+filter:
+
+brightness(1.3)
+drop-shadow(
+0 0 18px
+rgba(255,245,220,.9)
+);
+
+}
+
+100%{
+
+filter:
+
+brightness(1)
+drop-shadow(
+0 0 12px
+rgba(255,245,220,.7)
+);
+
+}
+
+}
+
+.product:hover{
+transform:scale(1.08);
+}
+
+.p1{
+width:100px;
+top:150px;
+left:80px;
+}
+
+.p2{
+width:100px;
+top:150px;
+right:80px;
+}
+
+.p3{
+width:90px;
+top:335px;
+left:85px;
+}
+
+.p4{
+width:100px;
+top:330px;
+right:80px;
+}
+
+.p5{
+width:90px;
+bottom:170px;
+left:80px;
+}
+
+.freezer{
+
+position:absolute;
+
+width:100%;
+
+z-index:1;
+
+animation:
+
+freezerStartup .9s ease-out,
+
+freezerFlicker 6s infinite 1.2s;
+
+}
+
+@keyframes freezerStartup{
+
+0%{
+
+filter:
+
+brightness(.2);
+
+}
+
+12%{
+
+filter:
+
+brightness(1.4);
+
+}
+
+20%{
+
+filter:
+
+brightness(.4);
+
+}
+
+35%{
+
+filter:
+
+brightness(1.3);
+
+}
+
+50%{
+
+filter:
+
+brightness(.6);
+
+}
+
+70%{
+
+filter:
+
+brightness(1.15);
+
+}
+
+100%{
+
+filter:
+
+brightness(1);
+
+}
+
+}
+
+@keyframes freezerFlicker{
+
+0%,87%,100%{
+
+filter:
+
+brightness(1);
+
+}
+
+89%{
+
+filter:
+
+brightness(1.18);
+
+}
+
+90%{
+
+filter:
+
+brightness(.82);
+
+}
+
+91%{
+
+filter:
+
+brightness(1.08);
+
+}
+
 }

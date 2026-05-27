@@ -1,45 +1,217 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-href="style.css">
+<title>Nomi the Hotdog</title>
 
-<title>About Me</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-    <audio
-id="bgm"
-loop>
-
-<source
-src="music/bgm.mp3"
-type="audio/mpeg">
-
+<audio id="bgm" autoplay loop>
+<source src="music/bgm.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container">
-
-<h1>個人品牌</h1>
-
-<p>
-這裡放妳的自我介紹
-</p>
+<nav class="side-menu">
 
 <a href="index.html">
+<img src="images/pudding.png">
+首頁
+</a>
 
-Back
+<a href="about.html">
+<img src="images/cherry-icon.png">
+個人簡介
+</a>
+
+<a href="brand.html">
+<img src="images/cream-icon.png">
+個人品牌
+</a>
+
+<a href="projects.html">
+<img src="images/pudding-icon.png">
+作品展示
+</a>
+
+</nav>
+
+<div class="brand-layout">
+
+<div class="brand-text">
+
+<div class="brand-header">
+
+<img
+src="images/logo.png"
+class="brand-logo">
+
+<div>
+
+<h1>
+
+NOMI THE HOTDOG
+
+</h1>
+
+<p class="brand-subtitle">
+
+糯米是隻腸
+
+</p>
+
+</div>
+
+</div>
+
+<p class="bark">
+
+「汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪汪」
+
+</p>
+
+<p>
+
+糯米是一隻奶油臘腸，Nomithehotdog（官譯：糯米是隻腸）的主理人，
+眾所皆知，狗不會說人話，糯米只好拜託一名人類幫他把喜歡的人、事、物；
+地球上（未來糯米也希望能環遊宇宙）喜歡的風景，
+用人類神秘的印刷技術製作成各式各樣的物品與大家一起分享。
+
+</p>
+
+<br>
+
+<p>
+
+糯米說他還有很多不足，人類也是，希望大家一起包容彼此，快樂地生活著。🌭
+
+</p>
+
+<a
+class="brand-ig"
+href="https://www.instagram.com/nomithehotdog/"
+target="_blank">
+
+<img
+src="images/icecream1.png"
+style="
+width:18px;
+vertical-align:-3px;
+margin-right:8px;
+">
+
+Instagram｜@nomithehotdog
+
+</a>
+
+<div style="height:12px;"></div>
+
+<a
+class="brand-ig"
+href="https://myship.7-11.com.tw/general/detail/GM2510025994328"
+target="_blank">
+
+<img
+src="images/icecream2.png"
+style="
+width:18px;
+vertical-align:-3px;
+margin-right:8px;
+">
+
+線上購物｜賣貨便
 
 </a>
 
 </div>
+
+<div class="brand-display">
+
+<img
+src="images/freezer.png"
+class="freezer">
+
+<img
+src="images/shirt-dot.png"
+class="product p1">
+
+<img
+src="images/shirt-loose.png"
+class="product p2">
+
+<img
+src="images/sock.png"
+class="product p3">
+
+<img
+src="images/postcard.png"
+class="product p4">
+
+<img
+src="images/photo.png"
+class="product p5">
+
+</div>
+
+</div>
+
+<script>
+
+const bgm =
+document.getElementById("bgm");
+
+bgm.volume = 0.08;
+
+document.addEventListener(
+
+"click",
+
+function(e){
+
+const link =
+e.target.closest("a");
+
+if(bgm && bgm.paused){
+
+bgm.play().catch(()=>{});
+
+}
+
+const clickAudio =
+new Audio(
+"music/click.mp3"
+);
+
+clickAudio.volume = 0.5;
+
+clickAudio.play().catch(()=>{});
+
+if(link && !link.target){
+
+e.preventDefault();
+
+setTimeout(function(){
+
+window.location.href =
+link.href;
+
+},600);
+
+}
+
+}
+
+);
+
+</script>
 
 </body>
 
