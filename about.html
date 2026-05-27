@@ -123,8 +123,6 @@ function settleColumn(x){
 function removePlaced(item){
   const oldX = item.x;
 
-  playBite();
-
   item.el.remove();
 
   const index = placed.indexOf(item);
@@ -261,7 +259,7 @@ window.addEventListener("DOMContentLoaded", function(){
   const eat = document.getElementById("eatBtn");
   const cancel = document.getElementById("cancelBtn");
 
-  bgm.volume = 0.3;
+  bgm.volume = 0.08;
 
   bgm.play().catch(function(){
     document.addEventListener("click", function(){

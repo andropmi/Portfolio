@@ -28,12 +28,9 @@ href="style.css">
 
 <body>
 
-  <audio id="bgm" autoplay loop>
-  <source src="music/bgm.mp3" type="audio/mpeg">
-</audio>
-
-    <audio
+<audio
 id="bgm"
+autoplay
 loop>
 
 <source
@@ -42,7 +39,8 @@ type="audio/mpeg">
 
 </audio>
 
-<audio id="clickSound">
+<audio
+id="clickSound">
 
 <source
 src="music/click.mp3"
@@ -54,7 +52,8 @@ type="audio/mpeg">
 
 <a href="about.html">
 
-<img src="images/cherry-icon.png">
+<img
+src="images/cherry-icon.png">
 
 個人簡介
 
@@ -62,7 +61,8 @@ type="audio/mpeg">
 
 <a href="brand.html">
 
-<img src="images/cream-icon.png">
+<img
+src="images/cream-icon.png">
 
 個人品牌
 
@@ -70,7 +70,8 @@ type="audio/mpeg">
 
 <a href="projects.html">
 
-<img src="images/pudding-icon.png">
+<img
+src="images/pudding-icon.png">
 
 作品展示
 
@@ -145,35 +146,11 @@ class="hotspot-icon">
 </div>
 
 <script>
-const bgm = document.getElementById("bgm");
-
-document.addEventListener("click", function(e){
-
-  const link = e.target.closest("a");
-
-  if(bgm && bgm.paused){
-    bgm.play().catch(()=>{});
-  }
-
-  const clickAudio = new Audio("music/click.mp3");
-  clickAudio.volume = 0.5;
-  clickAudio.play().catch(()=>{});
-
-  if(link){
-    e.preventDefault();
-
-    setTimeout(function(){
-      window.location.href = link.href;
-    }, 600);
-  }
-
-});
-</script>
-
-<script>
 
 const bgm =
-document.getElementById("bgm");
+document.getElementById(
+"bgm"
+);
 
 bgm.volume = 0.08;
 
@@ -194,6 +171,42 @@ bgm.play().catch(()=>{});
 );
 
 });
+
+document.addEventListener(
+
+"click",
+
+function(e){
+
+const link =
+e.target.closest("a");
+
+const clickAudio =
+new Audio(
+"music/click.mp3"
+);
+
+clickAudio.volume =
+0.5;
+
+clickAudio.play().catch(()=>{});
+
+if(link){
+
+e.preventDefault();
+
+setTimeout(function(){
+
+window.location.href =
+link.href;
+
+},600);
+
+}
+
+}
+
+);
 
 </script>
 

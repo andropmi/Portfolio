@@ -20,6 +20,10 @@
 <source src="music/bgm.mp3" type="audio/mpeg">
 </audio>
 
+<audio id="freezerSound" loop>
+  <source src="music/freezer-hum.mp3" type="audio/mpeg">
+</audio>
+
 <nav class="side-menu">
 
 <a href="index.html">
@@ -169,6 +173,31 @@ const bgm =
 document.getElementById("bgm");
 
 bgm.volume = 0.08;
+
+const freezerSound = document.getElementById("freezerSound");
+freezerSound.volume = 0.04;
+
+function startFreezerSound(){
+  freezerSound.play().catch(()=>{});
+}
+
+startFreezerSound();
+
+document.addEventListener("click", function(){
+  startFreezerSound();
+}, {once:true});
+
+function freezerBoost(){
+  freezerSound.volume = 0.5;
+
+  setTimeout(function(){
+    freezerSound.volume = 1.5;
+  }, 900);
+}
+
+setTimeout(freezerBoost, 150);
+
+setInterval(freezerBoost, 6000);
 
 document.addEventListener(
 
