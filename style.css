@@ -590,3 +590,144 @@ brightness(1.08);
 }
 
 }
+
+@media (max-width: 768px){
+
+body{
+overflow-x:hidden;
+}
+
+.side-menu{
+position:static;
+display:flex;
+flex-direction:row;
+justify-content:center;
+gap:14px;
+padding:20px 10px;
+flex-wrap:wrap;
+}
+
+.side-menu a{
+font-size:14px;
+letter-spacing:1px;
+}
+
+.side-menu img{
+width:20px;
+height:20px;
+}
+
+/* 主頁 */
+
+.container{
+min-height:auto;
+padding:30px 20px 80px;
+}
+
+.title{
+font-size:24px;
+letter-spacing:3px;
+text-align:center;
+}
+
+.pudding-container{
+width:78vw;
+}
+
+.hotspot{
+font-size:14px;
+gap:6px;
+}
+
+.hotspot-icon{
+width:18px;
+height:18px;
+}
+
+.cherry{
+top:8%;
+right:-18%;
+}
+
+.cream{
+top:42%;
+left:-18%;
+}
+
+.pudding-link{
+bottom:4%;
+right:-18%;
+}
+
+/* 個人簡介 */
+
+.about-container{
+min-height:auto;
+padding:40px 28px 80px;
+display:block;
+}
+
+.about-text{
+max-width:100%;
+}
+
+.about-text h1{
+font-size:38px;
+}
+
+.about-text p{
+font-size:15px;
+line-height:2;
+}
+
+.name-row{
+gap:14px;
+}
+
+.profile-small{
+width:76px;
+height:76px;
+}
+
+/* 個人品牌 */
+
+.brand-layout{
+min-height:auto;
+display:flex;
+flex-direction:column;
+padding:40px 24px 80px;
+gap:40px;
+}
+
+.brand-text{
+width:100%;
+line-height:2;
+}
+
+.brand-header{
+gap:14px;
+white-space:normal;
+}
+
+.brand-logo{
+width:76px;
+height:76px;
+}
+
+.brand-text h1{
+font-size:26px;
+letter-spacing:2px;
+white-space:normal;
+}
+
+.brand-subtitle{
+font-size:22px;
+}
+
+.brand-display{
+width:90vw;
+height:150vw;
+max-height:680px;
+}
+
+}
