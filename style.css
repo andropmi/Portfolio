@@ -598,30 +598,59 @@ overflow-x:hidden;
 }
 
 .side-menu{
+
 position:static;
+
 display:flex;
+
 flex-direction:row;
+
 justify-content:center;
-gap:14px;
-padding:20px 10px;
-flex-wrap:wrap;
+
+align-items:center;
+
+gap:10px;
+
+padding:18px 8px;
+
+flex-wrap:nowrap;
+
+overflow-x:auto;
+
+white-space:nowrap;
+
 }
 
 .side-menu a{
-font-size:14px;
-letter-spacing:1px;
+
+font-size:13px;
+
+letter-spacing:0;
+
+gap:5px;
+
+flex-shrink:0;
+
 }
 
 .side-menu img{
-width:20px;
-height:20px;
+
+width:18px;
+
+height:18px;
+
+flex-shrink:0;
+
 }
 
-/* 主頁 */
+/* 主頁布丁 */
 
-.container{
-min-height:auto;
-padding:30px 20px 80px;
+.pudding-container{
+
+width:62vw;
+
+max-width:250px;
+
 }
 
 .title{
@@ -645,20 +674,28 @@ height:18px;
 }
 
 .cherry{
-top:8%;
-right:-18%;
+
+top:10%;
+
+right:-12%;
+
 }
 
 .cream{
+
 top:42%;
-left:-18%;
+
+left:-12%;
+
 }
 
 .pudding-link{
-bottom:4%;
-right:-18%;
-}
 
+bottom:8%;
+
+right:-12%;
+
+}
 /* 個人簡介 */
 
 .about-container{
